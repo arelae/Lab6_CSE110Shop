@@ -49,7 +49,7 @@ nav {
 
 /* Custom Element CSS starts here */
 
-/* .price {
+.price {
   color: green;
   font-size: 1.8em;
   font-weight: bold;
@@ -111,6 +111,6 @@ nav {
   white-space: wrap;
   overflow: auto;
   text-overflow: unset;
-} */
+}
 
 /* Custom Element CSS Ends Here */
