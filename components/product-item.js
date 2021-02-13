@@ -15,7 +15,7 @@ class ProductItem extends HTMLElement {
         font-weight: bold;
         margin: 0;
       }
-      
+    
       .product {
         align-items: center;
         background-color: white;
