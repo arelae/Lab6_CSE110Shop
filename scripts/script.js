@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-let loadProd = function() {
+let loadProd = (item) => {
   let cart = localStorage.getItem('cart').split(',');
   let list = document.createElement('product-item');
   list.setAttribute('id', item.id);
@@ -39,5 +39,4 @@ let loadProd = function() {
     list.shadowRoot.querySelector('btn').innerHTML = 'Remove from cart';
     document.getElementById('cart-count').innerHTML++;
   }
-  return item;
 };
