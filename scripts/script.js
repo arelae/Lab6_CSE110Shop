@@ -37,10 +37,13 @@ let loadProd = (item) => {
   list.shadowRoot.querySelector("img").src = item.image;
   list.shadowRoot.querySelector("img").alt = item.title;
 
-  if (cart[item.id - 1] == "0") {
+  // not already added, so show add
+  if(cart[item.id - 1] == "0"){
     list.shadowRoot.querySelector("button").innerHTML = "Add to Cart";
-  } else {
-    list.shadowRoot.querySelector("button").innerHTML = "Remove from Cart";
+  } 
+  //already added, so show remove
+  else{
     document.getElementById("cart-count").innerHTML++;
+    list.shadowRoot.querySelector("button").innerHTML = "Remove from Cart";
   }
 };
