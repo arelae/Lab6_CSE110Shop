@@ -1,32 +1,31 @@
 // product-item.js
 
 class ProductItem extends HTMLElement {
-  // TODO
   constructor() {
     super();
     let shadow = this.attachShadow({mode: "open"});
     let image = document.createElement("img");
     let title = document.createElement("p");
     let price = document.createElement("p");
-    let button = document.createElement("button");
-
-    title.setAttribute("class", "title");
+    let btn = document.createElement("button");
     price.setAttribute("class", "price");
+    title.setAttribute("class", "title");
     
-    button.innerHTML = "Add to Cart";
-    button.onclick = () => {
+    btn.innerHTML = "Add to Cart";
+
+    btn.onclick = () => {
       let cart = localStorage.getItem("cart").split(",");
-      if (cart[this.id - 1] == "0") { 
+      if(cart[this.id - 1] == "0"){ 
+        document.getElementById("cart-count").innerHTML++;
         cart[this.id - 1] = "1";
         localStorage.setItem("cart", cart);
-        button.innerHTML = "Remove from Cart";
-        document.getElementById("cart-count").innerHTML++;
-      }  else {
+        btn.innerHTML = "Remove from Cart";
+      }  
+      else{
+        document.getElementById("cart-count").innerHTML--;
         cart[this.id - 1] = "0";
         localStorage.setItem("cart", cart);
-
-        button.innerHTML = "Add to Cart";
-        document.getElementById("cart-count").innerHTML--;
+        btn.innerHTML = "Add to Cart";
       }
     };
 
@@ -40,7 +39,7 @@ class ProductItem extends HTMLElement {
     item.appendChild(image);
     item.appendChild(title);
     item.appendChild(price);
-    item.appendChild(button);
+    item.appendChild(btn);
     shadow.appendChild(style);
     shadow.appendChild(item);
   }
