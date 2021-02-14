@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let prods = JSON.parse(localStorage.getItem("products"));
 
   // products are not initizalized
-  if (prods == null) {
+  if(prods == null){
     // fetch json
     fetch("https://fakestoreapi.com/products")
       .then( (response) => response.json())
@@ -16,8 +16,9 @@ window.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("cart", new Array(prods.length).fill(0).toString());
         for (const item in prods) loadProd(prods[item]);
       });
-  } else { // products do exist
-    for (const item in prods) loadProd(prods[item]);
+  } 
+  else{ // products do exist
+    for(const item in prods) loadProd(prods[item]);
   }
 });
 
